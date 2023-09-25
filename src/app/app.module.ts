@@ -11,12 +11,14 @@ import { ClienteModule } from "./pages/cliente/cliente.module";
 import { TelaInicialComponent } from './components/tela-inicial/tela-inicial.component';
 import { ContaModule } from './pages/conta/conta.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         TelaInicialComponent,
-        NavbarComponent
+        NavbarComponent,
+        FooterComponent
     ],
     providers: [provideNgxMask()],
     bootstrap: [AppComponent],
