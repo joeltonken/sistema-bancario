@@ -9,6 +9,7 @@ import { MaterialModule } from './shared/material/material.module';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ClienteModule } from "./pages/cliente/cliente.module";
 import { TelaInicialComponent } from './components/tela-inicial/tela-inicial.component';
+import { ContaModule } from './pages/conta/conta.module';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { TelaInicialComponent } from './components/tela-inicial/tela-inicial.com
         MaterialModule,
         NgxMaskDirective,
         NgxMaskPipe,
-        ClienteModule
+        ClienteModule,
+        ContaModule
     ]
 })
 export class AppModule { }
