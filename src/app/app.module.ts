@@ -10,11 +10,13 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ClienteModule } from "./pages/cliente/cliente.module";
 import { TelaInicialComponent } from './components/tela-inicial/tela-inicial.component';
 import { ContaModule } from './pages/conta/conta.module';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        TelaInicialComponent
+        TelaInicialComponent,
+        NavbarComponent
     ],
     providers: [provideNgxMask()],
     bootstrap: [AppComponent],

@@ -1,3 +1,4 @@
 export interface SaqueDeposito {
-    valor: number;
+    valor: number,
+    conta: number
 }

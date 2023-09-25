@@ -7,6 +7,9 @@ import { ListagemClienteComponent } from
 import { CadastroContaComponent } from './pages/conta/cadastro-conta/cadastro-conta.component';
 import { ListagemContaComponent } from './pages/conta/listagem-conta/listagem-conta.component';
 import { TelaInicialComponent } from './components/tela-inicial/tela-inicial.component';
+import { DepositoContaComponent } from './pages/conta/deposito-conta/deposito-conta.component';
+import { SaqueContaComponent } from './pages/conta/saque-conta/saque-conta.component';
+import { TransferenciaContaComponent } from './pages/conta/transferencia-conta/transferencia-conta.component';
 
 const routes: Routes = [
   { path: '', component: TelaInicialComponent },
@@ -37,6 +40,18 @@ const routes: Routes = [
       {
         path: 'editar/:id',
         component: CadastroContaComponent
+      },
+      {
+        path: 'deposito',
+        component: DepositoContaComponent
+      },
+      {
+        path: 'saque',
+        component: SaqueContaComponent
+      },
+      {
+        path: 'transferencia',
+        component: TransferenciaContaComponent
       },
       {
         path: '',

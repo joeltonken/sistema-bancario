@@ -1,33 +1,50 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Conta } from 'src/app/shared/models/Conta';
+import { ClienteService } from 'src/app/shared/services/cliente.service';
 import { ContaService } from 'src/app/shared/services/conta.service';
 import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-listagem-conta',
   templateUrl: './listagem-conta.component.html',
   styleUrls: ['./listagem-conta.component.scss']
 })
-export class ListagemContaComponent {
-  displayedColumns: string[] = ['id', 'agencia', 'numero', 'saldo', 'cliente', 'funcoes'];
+export class ListagemContaComponent implements AfterViewInit {
+  displayedColumns: string[] = ['id', 'numero', 'agencia', 'saldo', 'cliente', 'funcoes'];
   dataSource = new MatTableDataSource<Conta>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private contaService: ContaService) {
+
+  constructor(private contaService: ContaService, private clienteService: ClienteService) {
   }
+
 
   ngAfterViewInit() {
     this.listarContas(1, 5)
   }
 
+
   listarContas(page: number, pageSize: number) {
     this.contaService.listar_paginado(page, pageSize).subscribe(contas => {
-      this.dataSource.data = contas;
+      this.clienteService.listar().subscribe(clientes => {
+        const contasComNomesDeClientes = contas.map(conta => {
+          const cliente = clientes.find(cliente => cliente.id === conta.cliente);
+          if (cliente) {
+            conta.nomeCliente = cliente.nome;
+          }
+          return conta;
+        });
+        this.dataSource.data = contasComNomesDeClientes;
+      });
     });
   }
+
+
+
 
   onPageChange(event: PageEvent) {
     const pageIndex = event.pageIndex + 1;
@@ -35,7 +52,8 @@ export class ListagemContaComponent {
     this.listarContas(pageIndex, pageSize);
   }
 
-  deletarConta(id: number) {
+
+  deletarCLiente(id: number) {
     Swal.fire({
       title: 'Você tem certeza que deseja deletar?',
       text: "Não tem como reverter essa ação",
