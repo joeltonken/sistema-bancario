@@ -38,7 +38,8 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -55,10 +56,37 @@ td {
 mat-icon {
     cursor: pointer;
     margin-right: 0.5rem;
-    color: #4CAF50;
+    color: #1d201d;
     font-size: 1.2rem;
 }
 
 mat-paginator {
     margin-top: 2rem;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+}
+
+a:hover {
+    background-color: #555;
 }
