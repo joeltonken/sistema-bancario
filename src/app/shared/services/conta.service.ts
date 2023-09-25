@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Conta } from '../models/Conta';
 import { Observable } from 'rxjs';
+import { SaqueDeposito } from '../models/SaqueDeposito';
+import { Transferencia } from '../models/Transferencia';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,18 @@ export class ContaService {
   api = `${environment.api}/contas/`;
 
   constructor(private contaHttp: HttpClient) { }
+
+  saque(id: number, saqueDeposito: SaqueDeposito): Observable<any> {
+    return this.contaHttp.post(`${this.api}/${id}/saque`, { saqueDeposito });
+  }
+
+  deposito(id: number, deposito: SaqueDeposito): Observable<any> {
+    return this.contaHttp.post(`${this.api}/${id}/deposito`, deposito);
+  }
+
+  transferencia(id: number, transferencia: Transferencia): Observable<any> {
+    return this.contaHttp.post(`${this.api}/${id}/transferencia`, transferencia);
+  }
 
   cadastrar(novaConta: Conta): Observable<Conta> {
     return this.contaHttp.post<Conta>(
