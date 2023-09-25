@@ -7,12 +7,14 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastroContaComponent } from './cadastro-conta/cadastro-conta.component';
 import { ListagemContaComponent } from './listagem-conta/listagem-conta.component';
+import { OperacoesContaComponent } from './operacoes-conta/operacoes-conta.component';
 
 
 @NgModule({
   declarations: [
     CadastroContaComponent,
-    ListagemContaComponent
+    ListagemContaComponent,
+    OperacoesContaComponent
   ],
   imports: [
     CommonModule,
