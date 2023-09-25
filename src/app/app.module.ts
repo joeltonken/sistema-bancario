@@ -8,10 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './shared/material/material.module';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ClienteModule } from "./pages/cliente/cliente.module";
+import { TelaInicialComponent } from './components/tela-inicial/tela-inicial.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        TelaInicialComponent
     ],
     providers: [provideNgxMask()],
     bootstrap: [AppComponent],
